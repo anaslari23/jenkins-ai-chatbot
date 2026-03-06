@@ -26,6 +26,6 @@ LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "mistral")
 # FAISS
 FAISS_INDEX_PATH = VECTOR_STORE_DIR / "jenkins_docs.faiss"
 
-# Chunking
-CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "512"))
-CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "50"))
+# Chunking (token-based: 500–1000 range, default 800; overlap 100)
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "800"))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "100"))
