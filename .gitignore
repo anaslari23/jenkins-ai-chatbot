@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.env
+*.log
+
+# Virtual environment
+backend/venv/
+
+# Vector store data
+vector_store/*.faiss
+vector_store/*.pkl
+vector_store/*.index
+
+# Dataset - raw files can be large
+dataset/raw/
+
+# Node.js
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Java / Jenkins Plugin
+plugin/**/target/
+*.class
+*.jar
+*.war
+!plugin/**/src/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Torch / ML models
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+
+# Misc
+*.bak
+*.tmp
