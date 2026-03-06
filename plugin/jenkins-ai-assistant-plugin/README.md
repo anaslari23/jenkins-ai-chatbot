@@ -1,21 +1,45 @@
 # Jenkins AI Assistant Plugin
 
-This directory will contain the Jenkins plugin (Java) that embeds the AI chatbot interface into the Jenkins dashboard.
+A Jenkins plugin that embeds an AI chatbot assistant directly into the Jenkins dashboard.
 
-## Overview
+## Features
 
-The plugin will:
+- **Sidebar Link** — Adds "AI Assistant" to the Jenkins sidebar navigation
+- **Chat Panel** — Full chat interface within Jenkins (dark theme, premium design)
+- **Backend Proxy** — Routes questions through Jenkins to the FastAPI backend
+- **CSRF Protection** — Handles Jenkins crumb tokens automatically
 
-1. Add a sidebar link to open the AI Assistant chat panel.
-2. Serve the React-based chat UI as a Jenkins view.
-3. Proxy requests from the Jenkins UI to the FastAPI backend.
+## Architecture
 
-## Technology
+```
+Jenkins UI → Plugin (Java) → FastAPI Backend → RAG Pipeline → LLM → Response
+```
 
-- Jenkins Plugin SDK
-- Java 11+
-- Jelly / React (for the UI)
+## Building
 
-## Status
+Requires Maven 3.x and Java 11+.
 
-🚧 **Under development** — Plugin scaffolding will be added in a future phase.
+```bash
+cd plugin/jenkins-ai-assistant-plugin
+mvn package
+```
+
+This produces `target/jenkins-ai-assistant.hpi` which can be installed in Jenkins.
+
+## Configuration
+
+Set the backend URL via Java system property:
+
+```
+-Dai.assistant.backend.url=http://localhost:8000
+```
+
+## Files
+
+| File | Purpose |
+|---|---|
+| `pom.xml` | Maven build config (hpi packaging) |
+| `AiAssistantAction.java` | RootAction — sidebar link + /ask proxy |
+| `index.jelly` | Jelly view — chat panel HTML |
+| `chat.css` | Chat UI styles |
+| `chat.js` | Chat frontend logic |

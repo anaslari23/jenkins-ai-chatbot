@@ -1,0 +1,43 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:staples">
+  <l:layout title="AI Assistant" norefresh="true">
+    <l:main-panel>
+      <link rel="stylesheet" href="${rootURL}/plugin/jenkins-ai-assistant/css/chat.css" />
+
+      <div id="ai-assistant-container">
+        <div id="ai-assistant-header">
+          <div class="header-icon">⚡</div>
+          <div class="header-text">
+            <h2>Jenkins AI Assistant</h2>
+            <span class="header-subtitle">Powered by RAG · Local LLM</span>
+          </div>
+          <div class="header-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Online</span>
+          </div>
+        </div>
+
+        <div id="ai-chat-messages">
+          <div class="welcome-message">
+            <div class="welcome-icon">🤖</div>
+            <h3>Jenkins AI Assistant</h3>
+            <p>Ask me anything about Jenkins — pipelines, plugins, configuration, troubleshooting, and more.</p>
+          </div>
+        </div>
+
+        <div id="ai-chat-input-area">
+          <textarea
+            id="ai-chat-input"
+            placeholder="Ask about Jenkins pipelines, plugins, configuration…"
+            rows="1"
+          ></textarea>
+          <button id="ai-chat-send" type="button">
+            &#10148;
+          </button>
+        </div>
+      </div>
+
+      <script src="${rootURL}/plugin/jenkins-ai-assistant/js/chat.js"></script>
+    </l:main-panel>
+  </l:layout>
+</j:jelly>
